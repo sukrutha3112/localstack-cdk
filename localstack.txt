@@ -1,0 +1,186 @@
+pip install localstack
+
+docker run --rm -it -p 4566:4566 -p 4510-4559:4510-4559 localstack/localstack
+
+-bucket creation
+aws configure
+aws --endpoint-url=http://localhost:4566/ s3 ls
+aws --endpoint-url=http://localhost:4566/ s3 mb s3://mostly-code-local-bucket
+
+-s3 bucket
+aws s3 mb --endpoint-url http://localhost:4566/ --region ap-south-1 "s3://static-s3-bucket
+
+
+-in localstack folder
+-create test-file.txt
+aws s3 cp test-file.txt s3://mostly-code-local-bucket/test-file.txt --endpoint=http://localhost:4566/
+
+https://www.youtube.com/watch?v=fzpY7x1siHw
+
+go to localhost:4566
+and localhost:4566/{bucketname}
+
+-create a website and upload it into bucket
+aws s3 --endpoint-url="http://localhost:4566" website "s3://static-s3-bucket" --index-document index.html --error-document index.html
+aws s3 --endpoint-url="http://localhost:4566" sync /localstack/website "s3://static-s3-bucket"
+
+-dynamodb
+create table
+aws --endpoint-url=http://localhost:4566/ dynamodb create-table --cli-input-json file:///localstack/dynamodb/dynamodb-template.json
+
+list table
+aws --endpoint-url=http://localhost:4566/ dynamodb list-tables
+
+delete table
+aws --endpoint-url=http://localhost:4556/ dynamodb delete-table --table-name demo-table01
+
+insert item
+aws --endpoint-url=http://localhost:4566/ dynamodb batch-write-item --request-items file://items.json
+
+scan table
+aws --endpoint-url=http://localhost:4566/ dynamodb scan --table-name "demo-table01"
+
+
+IAM ROLE:
+- execution-role.json
+aws --endpoint-url=http://localhost:4566 iam create-role --role-name "aws-localstack-iam" --assume-role-policy-document file://execution-role.json
+
+-trust-policy.json
+aws --endpoint-url=http://localhost:4566 iam create-role --role-name "aws-localstack-iam-trust-policy" --assume-role-policy-document file://trust-policy.json
+
+-list roles command
+aws --endpoint-url=http://localhost:4566 iam list-roles
+
+LAMBDA:
+-create functon
+aws --endpoint-url=http://localhost:4566 lambda create-function --function-name "lambda-function" --zip-file fileb://function.zip --handler 'index.handler' --runtime nodejs14.x --role aws-localstack-iam
+
+-invoke function
+aws --endpoint-url=http://localhost:4566 lambda invoke --function-name "lambda-function" output.json
+ 
+-decode the output in bash
+aws --endpoint-url=http://localhost:4566 lambda invoke --function-name "lambda-function" output.json --log-type Tail --query 'LogResult' --output text | base64 -d
+
+
+CDK:
+//https://bobbyhadz.com/blog/what-does-cdk-deploy-do
+-install:
+npm i -g aws-cdk-local aws-cdk
+
+-mkdir cdk -> cd cdk
+cdklocal init sample-app --language typescript
+
+npm run watch - 1 terminal
+
+ open 2nd terminal
+//https://blog.dennisokeeffe.com/blog/2021-08-07-using-the-aws-cdk-with-localstack-and-aws-cdk-local
+npm run local synth
+or
+npm run local synth > out.yml
+
+cdklocal bootstrap
+
+cdklocal deploy
+
+
+-
+aws cloudformation list-stacks --endpoint-url http://localhost:4566
+
+aws cloudformation list-stack-resources --stack-name CdkStack --endpoint-url http://localhost:4566
+
+CDK LAMBDA ;
+
+create dir -> lambda/hello.js:
+exports.handler = function(event, context, callback){
+    return {
+        statusCode: 200,
+        header: {'Content-Type': 'text/plain'},
+        body: 'Hello - LAMBDA CDK'
+
+    };
+   
+}
+
+//C:\localstack\cdk>
+npm install @aws-cdk/aws-lambda
+
+change cdk-stack.ts to this:
+import * as cdk from '@aws-cdk/core';
+import * as lambda from '@aws-cdk/aws-lambda';
+
+export class CdkStack extends cdk.Stack {
+  constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    const hello = new lambda.Function(this, 'MyFunction', {
+      runtime: lambda.Runtime.NODEJS_14_X,
+      handler: 'hello.handler',
+      code: lambda.Code.fromAsset('lib/lambda'),
+      
+    });
+
+  }
+}
+
+change -> bin/cdk.js
+#!/usr/bin/env node
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const cdk = require("@aws-cdk/core");
+const cdk_stack_1 = require("../lib/cdk-stack");
+const app = new cdk.App();
+new cdk_stack_1.CdkStack(app, 'CdkStack');
+
+
+cdklocal diff
+npm install -g aws-cdk (if not updated version)
+cdklocal deploy
+aws --endpoint-url=http://localhost:4566 lambda list-functions (lists the functions)
+
+aws lambda invoke \ --cli-binary-format raw-in-base64-out\ --function-name CdkStack-MyFunction3BAA72D1-1fbe1a9c\ --invocation-type RequestResponse \ --no-sign-request \ payload file://apigateway-aws-proxy.json \ --endpoint http://localhost:4566 \ output.json
+
+soc-update-dynamodb-java
+
+aws lambda invoke \
+    --cli-binary-format raw-in-base64-out \
+    --function-name CdkStack-MyFunction3BAA72D1-aec7d0da \
+    --invocation-type RequestResponse \
+    --no-sign-request \
+    --endpoint http://localhost:4566 \
+    output.json
+------------------------------------------------------------
+apigate-aws:
+https://github.com/aws-samples/aws-serverless-books-api-sample/blob/main/events/create-book-request.json
+
+cdklocal deploy
+
+aws lambda invoke \
+    --cli-binary-format raw-in-base64-out \
+    --function-name CdkStack-MyFunction3BAA72D1-aec7d0da \
+    --invocation-type RequestResponse \
+    --no-sign-request \
+    --payload file://apigateway-aws-proxy.json \
+    --endpoint http://localhost:4566 \
+    output.json
+check -> output.json
+
+------------------------------------------------------------
+install aws-apigateway
+
+-------changed in package.json
+ "@aws-cdk/aws-lambda": "^2.25.0",
+    "@aws-cdk/core": "^2.25.0",
+    "aws-cdk-lib": "2.25.0",
+    "constructs": "^10.0.0"
+------------------------------
+npm i @aws-cdk/aws-apigateway
+npm update
+
+in cdk-stack.ts
+import * as apiGateway from '@aws-cdk/aws-apigateway';
+new apiGateway.LambdaRestApi(this,'MyEndpoint',{
+      handler: hello
+    })
+
+cdklocal deploy
+//https://stackoverflow.com/questions/4037939/powershell-says-execution-of-scripts-is-disabled-on-this-system
