@@ -1,0 +1,275 @@
+{
+  "version": "20.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "CdkStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "CdkStack.template.json",
+        "validateOnSynth": false
+      },
+      "metadata": {
+        "/CdkStack": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "asset.c1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9",
+              "id": "c1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9",
+              "packaging": "zip",
+              "sourceHash": "c1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9",
+              "s3BucketParameter": "AssetParametersc1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9S3Bucket4EB03C9C",
+              "s3KeyParameter": "AssetParametersc1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9S3VersionKeyF7A7D95B",
+              "artifactHashParameter": "AssetParametersc1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9ArtifactHashDE4CC04C"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\construct-compat.ts:453:92)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:187:23)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:86:19)",
+              "CdkStack.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack.ts:683:29)",
+              "C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:91:53",
+              "withoutDeprecationWarnings (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:219:12)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:91:14)",
+              "new Asset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.ts:152:40)",
+              "AssetCode.bind (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.ts:285:20)",
+              "new Function (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.ts:707:29)",
+              "new CdkStack (C:\\localstack\\cdk\\lib\\cdk-stack.ts:10:19)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\bin\\cdk.ts:6:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Module.m._compile (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1597:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1600:12)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "phase4 (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:579:12)",
+              "bootstrap (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:85:10)",
+              "main (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:54:10)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:729:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/CdkStack/MyFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunctionServiceRole3C357FF2",
+            "trace": [
+              "new Role (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-iam\\lib\\role.ts:376:18)",
+              "new Function (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.ts:687:31)",
+              "new CdkStack (C:\\localstack\\cdk\\lib\\cdk-stack.ts:10:19)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\bin\\cdk.ts:6:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Module.m._compile (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1597:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1600:12)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "phase4 (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:579:12)",
+              "bootstrap (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:85:10)",
+              "main (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:54:10)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:729:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/CdkStack/MyFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyFunction3BAA72D1",
+            "trace": [
+              "new Function (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.ts:770:35)",
+              "new CdkStack (C:\\localstack\\cdk\\lib\\cdk-stack.ts:10:19)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\bin\\cdk.ts:6:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Module.m._compile (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1597:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1600:12)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "phase4 (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:579:12)",
+              "bootstrap (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:85:10)",
+              "main (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:54:10)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:729:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/CdkStack/AssetParameters/c1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersc1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9S3Bucket4EB03C9C",
+            "trace": [
+              "new FileAssetParameters (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.ts:16:32)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:170:16)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:86:19)",
+              "CdkStack.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack.ts:683:29)",
+              "C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:91:53",
+              "withoutDeprecationWarnings (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:219:12)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:91:14)",
+              "new Asset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.ts:152:40)",
+              "AssetCode.bind (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.ts:285:20)",
+              "new Function (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.ts:707:29)",
+              "new CdkStack (C:\\localstack\\cdk\\lib\\cdk-stack.ts:10:19)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\bin\\cdk.ts:6:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Module.m._compile (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1597:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1600:12)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "phase4 (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:579:12)",
+              "bootstrap (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:85:10)",
+              "main (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:54:10)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:729:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/CdkStack/AssetParameters/c1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersc1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9S3VersionKeyF7A7D95B",
+            "trace": [
+              "new FileAssetParameters (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.ts:21:31)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:170:16)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:86:19)",
+              "CdkStack.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack.ts:683:29)",
+              "C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:91:53",
+              "withoutDeprecationWarnings (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:219:12)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:91:14)",
+              "new Asset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.ts:152:40)",
+              "AssetCode.bind (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.ts:285:20)",
+              "new Function (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.ts:707:29)",
+              "new CdkStack (C:\\localstack\\cdk\\lib\\cdk-stack.ts:10:19)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\bin\\cdk.ts:6:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Module.m._compile (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1597:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1600:12)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "phase4 (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:579:12)",
+              "bootstrap (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:85:10)",
+              "main (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:54:10)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:729:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/CdkStack/AssetParameters/c1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParametersc1a2a1105add2ceb3094c65dea9701beab9ee19a35c8ae129365c01e4dc50ee9ArtifactHashDE4CC04C",
+            "trace": [
+              "new FileAssetParameters (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\asset-parameters.ts:26:34)",
+              "LegacyStackSynthesizer.doAddFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:170:16)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:86:19)",
+              "CdkStack.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack.ts:683:29)",
+              "C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:91:53",
+              "withoutDeprecationWarnings (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:219:12)",
+              "LegacyStackSynthesizer.addFileAsset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stack-synthesizers\\legacy.ts:91:14)",
+              "new Asset (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-s3-assets\\lib\\asset.ts:152:40)",
+              "AssetCode.bind (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-lambda\\lib\\code.ts:285:20)",
+              "new Function (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\aws-lambda\\lib\\function.ts:707:29)",
+              "new CdkStack (C:\\localstack\\cdk\\lib\\cdk-stack.ts:10:19)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\bin\\cdk.ts:6:1)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Module.m._compile (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1597:23)",
+              "Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Object.require.extensions.<computed> [as .ts] (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\index.ts:1600:12)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "phase4 (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:579:12)",
+              "bootstrap (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:85:10)",
+              "main (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:54:10)",
+              "Object.<anonymous> (C:\\localstack\\cdk\\node_modules\\ts-node\\src\\bin.ts:729:3)",
+              "Module._compile (node:internal/modules/cjs/loader:1103:14)",
+              "Object.Module._extensions..js (node:internal/modules/cjs/loader:1157:10)",
+              "Module.load (node:internal/modules/cjs/loader:981:32)",
+              "Function.Module._load (node:internal/modules/cjs/loader:822:12)",
+              "Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)",
+              "node:internal/main/run_main_module:17:47"
+            ]
+          }
+        ],
+        "/CdkStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.ts:22:24)",
+              "C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.ts:166:5",
+              "visit (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.ts:231:5)",
+              "visit (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.ts:227:5)",
+              "injectMetadataResources (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.ts:157:3)",
+              "Object.synthesize (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.ts:18:3)",
+              "App.synth (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stage.ts:180:23)",
+              "process.<anonymous> (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\app.ts:131:45)",
+              "Object.onceWrapper (node:events:646:26)",
+              "process.emit (node:events:526:28)",
+              "process.emit (node:domain:475:12)",
+              "process.emit.sharedData.processEmitHook.installedValue [as emit] (C:\\localstack\\cdk\\node_modules\\@cspotcode\\source-map-support\\source-map-support.js:745:40)"
+            ]
+          }
+        ],
+        "/CdkStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable",
+            "trace": [
+              "new MetadataResource (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\metadata-resource.ts:31:27)",
+              "C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.ts:166:5",
+              "visit (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.ts:231:5)",
+              "visit (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.ts:227:5)",
+              "injectMetadataResources (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.ts:157:3)",
+              "Object.synthesize (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\private\\synthesis.ts:18:3)",
+              "App.synth (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\stage.ts:180:23)",
+              "process.<anonymous> (C:\\localstack\\cdk\\node_modules\\@aws-cdk\\core\\lib\\app.ts:131:45)",
+              "Object.onceWrapper (node:events:646:26)",
+              "process.emit (node:events:526:28)",
+              "process.emit (node:domain:475:12)",
+              "process.emit.sharedData.processEmitHook.installedValue [as emit] (C:\\localstack\\cdk\\node_modules\\@cspotcode\\source-map-support\\source-map-support.js:745:40)"
+            ]
+          }
+        ]
+      },
+      "displayName": "CdkStack"
+    }
+  }
+}
